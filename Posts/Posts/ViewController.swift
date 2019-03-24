@@ -14,8 +14,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let client = NetworkService()
+        client.getPosts() { (result) in
+            switch result {
+            case .succeed( let posts ):
+                print("Posts: ", posts)
+            case .failed(let error):
+                print("Error: \(error)")
+            }
+        }
     }
-
-
 }
 
