@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Posts/../Models/Models.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Posts/Posts.xcodeproj">
    </FileRef>
 </Workspace>
