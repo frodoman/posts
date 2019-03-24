@@ -10,6 +10,12 @@
 		9AD5D7DE22480AE200FA7268 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD5D7D422480AE200FA7268 /* Models.framework */; };
 		9AD5D7E322480AE200FA7268 /* ModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5D7E222480AE200FA7268 /* ModelsTests.swift */; };
 		9AD5D7E522480AE200FA7268 /* Models.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AD5D7D722480AE200FA7268 /* Models.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9AD5D7FE22480C8100FA7268 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5D7FD22480C8100FA7268 /* Post.swift */; };
+		9AD5D80022480C8F00FA7268 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5D7FF22480C8F00FA7268 /* User.swift */; };
+		9AD5D80222480CB000FA7268 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5D80122480CB000FA7268 /* Comment.swift */; };
+		9AD5D80522480CDC00FA7268 /* posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5D80422480CDC00FA7268 /* posts.json */; };
+		9AD5D80722480CEA00FA7268 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5D80622480CEA00FA7268 /* users.json */; };
+		9AD5D80922480CFD00FA7268 /* comments.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5D80822480CFD00FA7268 /* comments.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +35,12 @@
 		9AD5D7DD22480AE200FA7268 /* ModelsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModelsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AD5D7E222480AE200FA7268 /* ModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsTests.swift; sourceTree = "<group>"; };
 		9AD5D7E422480AE200FA7268 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AD5D7FD22480C8100FA7268 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		9AD5D7FF22480C8F00FA7268 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9AD5D80122480CB000FA7268 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		9AD5D80422480CDC00FA7268 /* posts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = posts.json; sourceTree = "<group>"; };
+		9AD5D80622480CEA00FA7268 /* users.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
+		9AD5D80822480CFD00FA7268 /* comments.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = comments.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +83,8 @@
 		9AD5D7D622480AE200FA7268 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9AD5D7FC22480C6400FA7268 /* Networking */,
+				9AD5D7FB22480C5A00FA7268 /* DataModels */,
 				9AD5D7D722480AE200FA7268 /* Models.h */,
 				9AD5D7D822480AE200FA7268 /* Info.plist */,
 			);
@@ -80,10 +94,38 @@
 		9AD5D7E122480AE200FA7268 /* ModelsTests */ = {
 			isa = PBXGroup;
 			children = (
+				9AD5D80322480CBA00FA7268 /* JSONs */,
 				9AD5D7E222480AE200FA7268 /* ModelsTests.swift */,
 				9AD5D7E422480AE200FA7268 /* Info.plist */,
 			);
 			path = ModelsTests;
+			sourceTree = "<group>";
+		};
+		9AD5D7FB22480C5A00FA7268 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				9AD5D7FD22480C8100FA7268 /* Post.swift */,
+				9AD5D7FF22480C8F00FA7268 /* User.swift */,
+				9AD5D80122480CB000FA7268 /* Comment.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		9AD5D7FC22480C6400FA7268 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		9AD5D80322480CBA00FA7268 /* JSONs */ = {
+			isa = PBXGroup;
+			children = (
+				9AD5D80422480CDC00FA7268 /* posts.json */,
+				9AD5D80622480CEA00FA7268 /* users.json */,
+				9AD5D80822480CFD00FA7268 /* comments.json */,
+			);
+			path = JSONs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +190,7 @@
 				TargetAttributes = {
 					9AD5D7D322480AE200FA7268 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					9AD5D7DC22480AE200FA7268 = {
 						CreatedOnToolsVersion = 10.1;
@@ -184,6 +227,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AD5D80722480CEA00FA7268 /* users.json in Resources */,
+				9AD5D80522480CDC00FA7268 /* posts.json in Resources */,
+				9AD5D80922480CFD00FA7268 /* comments.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +240,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AD5D80022480C8F00FA7268 /* User.swift in Sources */,
+				9AD5D80222480CB000FA7268 /* Comment.swift in Sources */,
+				9AD5D7FE22480C8100FA7268 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +390,7 @@
 		9AD5D7E922480AE200FA7268 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -358,6 +408,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.xmartsoft.Models;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +417,7 @@
 		9AD5D7EA22480AE200FA7268 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -391,6 +443,7 @@
 		9AD5D7EC22480AE200FA7268 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XJBSMAW62U;
 				INFOPLIST_FILE = ModelsTests/Info.plist;
@@ -409,6 +462,7 @@
 		9AD5D7ED22480AE200FA7268 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XJBSMAW62U;
 				INFOPLIST_FILE = ModelsTests/Info.plist;
