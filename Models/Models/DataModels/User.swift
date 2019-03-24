@@ -17,8 +17,8 @@ public struct Address: Codable {
 }
 
 public struct GeoLocation: Codable {
-    public let lat: Float
-    public let lng: Float
+    public let lat: String
+    public let lng: String
 }
 
 public struct Company: Codable {
