@@ -9,9 +9,9 @@
 import Foundation
 
 public protocol UrlFactory {
-    func makePostsUrl() -> String
-    func makeUsersUrl() -> String
-    func makeCommentsUrl() -> String
+    func makePostsUrl() -> URL?
+    func makeUsersUrl() -> URL?
+    func makeCommentsUrl() -> URL?
 }
 
 public enum UrlPaths {
@@ -26,15 +26,15 @@ public class LiveUrlFactory: UrlFactory {
         
     }
     
-    public func makePostsUrl() -> String {
-        return UrlPaths.posts
+    public func makePostsUrl() -> URL? {
+        return URL(string: UrlPaths.posts)
     }
     
-    public func makeUsersUrl() -> String {
-        return UrlPaths.users
+    public func makeUsersUrl() -> URL? {
+        return URL(string: UrlPaths.users)
     }
     
-    public func makeCommentsUrl() -> String {
-        return UrlPaths.comments
+    public func makeCommentsUrl() -> URL? {
+        return URL(string: UrlPaths.comments)
     }
 }

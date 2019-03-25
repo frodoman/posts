@@ -59,26 +59,61 @@ final class NetworkServiceTests: XCTestCase {
 
     func testGetPostsWithLocalData() {
         let client = DefaultNetworkClient()
-        let service = NetworkService(client: client)
+        let service = NetworkService(client: client,
+                                     urlFactory: MockUrlFactory())
         
-        if let url = url(forJsonFile: "search-result-response-hello-normal") {
-            
-            let request = URLRequest(url: url)
-            let localdataExpectation = expectation(description: "Should Return local data")
-            
-            service.getSearchResult(with: request) { (result) in
-                switch result {
-                case .failed( let error):
-                    XCTFail("Failed to load local data : \(error)")
-                case .succeed(let searchResponse):
-                    XCTAssertNotNil(searchResponse.results.attr)
-                }
-                localdataExpectation.fulfill()
+        let localdataExpectation = expectation(description: "Should Return local data")
+        service.getPosts { (result) in
+            switch result {
+            case .failed( let error):
+                XCTFail("Failed to get posts: \(error)")
+            case .succeed(let postResponse):
+                XCTAssertNotNil(postResponse)
+                XCTAssertFalse(postResponse.isEmpty)
             }
-            
-            waitForExpectations(timeout: 10, handler: nil)
-            
+            localdataExpectation.fulfill()
         }
+        waitForExpectations(timeout: 10, handler: nil)
     }
     
+    func testDefaultNetworkClientWithMockSession() {
+        
+        let mockSession = MockNetworkSession()
+        let client = DefaultNetworkClient(session: mockSession)
+        let service = NetworkService(client: client)
+        
+        if let responseData = data(forJsonFile: "posts") {
+            
+            mockSession.completionResult = (responseData, URLResponse(), nil)
+            
+            service.getPosts { (result) in
+                switch result {
+                case .failed( let error):
+                    XCTAssertNotNil(error)
+                case .succeed(let posts):
+                    XCTAssertNotNil(posts)
+                }
+            }
+            
+            mockSession.completionResult = (nil, URLResponse(), NetworkErrors.genaric)
+            service.getPosts { (result) in
+                switch result {
+                case .failed( let error):
+                    XCTAssertNotNil(error)
+                case .succeed(let posts):
+                    XCTFail("Should be nil but got: \(posts)")
+                }
+            }
+            
+            mockSession.completionResult = (nil, URLResponse(), nil)
+            service.getPosts { (result) in
+                switch result {
+                case .failed( let error):
+                    XCTAssertNotNil(error)
+                case .succeed(let posts):
+                    XCTFail("Should be nil but got: \(posts)")
+                }
+            }
+        }
+    }
 }

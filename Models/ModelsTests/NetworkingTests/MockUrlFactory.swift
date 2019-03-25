@@ -9,22 +9,29 @@
 import XCTest
 @testable import Models
 
-public class MockUrlFactory: XCTestCase, UrlFactory {
+public class MockUrlFactory: UrlFactory {
     
-    public func makePostsUrl() -> String {
-        var urlPath = ""
-        if let urlText = url(forJsonFile: "posts") {
-            urlPath = urlText
+    public init() {
+        
+    }
+    
+    public func makePostsUrl() -> URL? {
+       return pathForJson(name: "posts")
+    }
+    
+    public func makeUsersUrl() -> URL? {
+        return pathForJson(name: "users")
+    }
+    
+    public func makeCommentsUrl() -> URL? {
+        return pathForJson(name: "comments")
+    }
+    
+    private func pathForJson(name fileName: String) -> URL? {
+        var urlPath: URL?
+        if let url = Bundle(for: type(of: self).self).url(forResource: fileName, withExtension: "json") {
+            urlPath = url
         }
         return urlPath
-    }
-    
-    public func makeUsersUrl() -> String {
-        let urlText = url(forJsonFile: "users")
-        return urlText ?? ""
-    }
-    
-    public func makeCommentsUrl() -> String {
-        return UrlPaths.comments
     }
 }

@@ -36,9 +36,9 @@ public class NetworkService: ResponseHandler {
         }
     }
     
-    private func urlRequest(for urlText: String) -> URLRequest? {
+    private func urlRequest(for url: URL?) -> URLRequest? {
         var request: URLRequest?
-        if let url = URL(string: urlText) {
+        if let url = url {
             request = URLRequest(url: url)
         }
         return request
