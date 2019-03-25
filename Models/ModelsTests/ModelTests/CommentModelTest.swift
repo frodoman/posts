@@ -9,7 +9,7 @@
 import XCTest
 @testable import Models
 
-class CommentModelTest: XCTestCase {
+final class CommentModelTest: XCTestCase {
     
     func testCommentModelParser() {
         guard let data = self.data(forJsonFile:"comments") else {

@@ -38,7 +38,6 @@ public class DefaultNetworkClient: NetworkClient {
                                     return
                                 }
                                 
-                                
                                 guard let data = data else {
                                     completion(.failed(NetworkErrors.emptyResponse))
                                     return
