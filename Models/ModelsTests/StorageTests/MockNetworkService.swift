@@ -9,7 +9,7 @@
 import Foundation
 @testable import Models
 
-public class MockService: DataService {
+public class MockNetworkService: DataService {
     
     public var postsResult: RequestResult<[Post]>?
     public var usersResult: RequestResult<[User]>?

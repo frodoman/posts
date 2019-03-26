@@ -12,7 +12,7 @@ import XCTest
 class StorageTest: XCTestCase {
     
     func testGetLiveData() {
-        let mockService = MockService()
+        let mockService = MockNetworkService()
         let mockStorage = Storage(mockService)
         
         mockStorage.getLiveData { (posts, users, comments, error) in
