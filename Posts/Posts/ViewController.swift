@@ -16,12 +16,14 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         let client = NetworkService()
-        client.getPosts() { (result) in
-            switch result {
-            case .succeed( let posts ):
-                print("Posts: ", posts)
-            case .failed(let error):
-                print("Error: \(error)")
+        client.getAllInfo { (posts, users, comments, error) in
+            if let error = error {
+                print("** ERROR: \n", error)
+            }
+            else {
+                print("** POSTS: \n", posts.count)
+                print("** USERS: \n", users.count)
+                print("** COMMENTS: \n", comments.count)
             }
         }
     }
