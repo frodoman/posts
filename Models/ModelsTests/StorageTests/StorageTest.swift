@@ -48,7 +48,7 @@ class StorageTest: XCTestCase {
             }
         }
         catch {
-            
+            XCTFail()
         }
        
     }
