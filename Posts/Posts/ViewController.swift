@@ -15,15 +15,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let client = NetworkService()
-        client.getAllInfo { (posts, users, comments, error) in
+        let client = Storage()
+        client.getLiveData { (posts, users, comments, error) in
             if let error = error {
-                print("** ERROR: \n", error)
+                print("** ERROR: ", error)
             }
             else {
-                print("** POSTS: \n", posts.count)
-                print("** USERS: \n", users.count)
-                print("** COMMENTS: \n", comments.count)
+                print("** POSTS: ", posts.count)
+                print("** USERS: ", users.count)
+                print("** COMMENTS: ", comments.count)
             }
         }
     }
