@@ -18,7 +18,7 @@ final class NetworkServiceTests: XCTestCase {
         let service = NetworkService(client: mockClient)
         
         let jsonData = data(forJsonFile: "posts")!
-        mockClient.mockedResults = [.succeed(jsonData)]
+        mockClient.mockedResult = .succeed(jsonData)
         
         service.getPosts { (result) in
             switch result {
@@ -30,7 +30,7 @@ final class NetworkServiceTests: XCTestCase {
             }
         }
         
-        mockClient.mockedResults = [.failed(NetworkErrors.genaric)]
+        mockClient.mockedResult = .failed(NetworkErrors.genaric)
         service.getPosts { (result) in
             switch result {
             case .failed( let error):
@@ -46,7 +46,7 @@ final class NetworkServiceTests: XCTestCase {
         let service = NetworkService(client: mockClient)
         
         let jsonData = data(forJsonFile: "posts_error")!
-        mockClient.mockedResults = [.succeed(jsonData)]
+        mockClient.mockedResult = .succeed(jsonData)
         
         service.getPosts { (result) in
             switch result {
@@ -83,7 +83,7 @@ final class NetworkServiceTests: XCTestCase {
         let service = NetworkService(client: mockClient)
         
         let jsonData = data(forJsonFile: "users")!
-        mockClient.mockedResults = [.succeed(jsonData)]
+        mockClient.mockedResult = .succeed(jsonData)
         
         service.getUsers { (result) in
             switch result {
@@ -96,13 +96,29 @@ final class NetworkServiceTests: XCTestCase {
         }
     }
     
+    func testGetUsersErrorHandler() {
+        let mockClient = MockNetworkClient(session: MockNetworkSession())
+        let service = NetworkService(client: mockClient)
+        
+        mockClient.mockedResult = .failed(NetworkErrors.genaric)
+        
+        service.getUsers { (result) in
+            switch result {
+            case .failed( let error):
+                XCTAssertNotNil(error)
+            case .succeed(let users):
+                XCTFail("Should be nil but got \(users)")
+            }
+        }
+    }
+    
     //MARK: - Comments
     func testGetCommentsNormal() {
         let mockClient = MockNetworkClient(session: MockNetworkSession())
         let service = NetworkService(client: mockClient)
         
         let jsonData = data(forJsonFile: "comments")!
-        mockClient.mockedResults = [.succeed(jsonData)]
+        mockClient.mockedResult = .succeed(jsonData)
         
         service.getComments { (result) in
             switch result {
@@ -111,6 +127,22 @@ final class NetworkServiceTests: XCTestCase {
             case .succeed(let comments):
                 XCTAssertNotNil(comments)
                 XCTAssertFalse(comments.isEmpty)
+            }
+        }
+    }
+    
+    func testGetCommentsErrorHandler() {
+        let mockClient = MockNetworkClient(session: MockNetworkSession())
+        let service = NetworkService(client: mockClient)
+        
+        mockClient.mockedResult = .failed(NetworkErrors.genaric)
+        
+        service.getComments { (result) in
+            switch result {
+            case .failed( let error):
+                XCTAssertNotNil(error)
+            case .succeed(let comments):
+                XCTFail("Should be nil but got \(comments)")
             }
         }
     }
