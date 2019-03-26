@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class NetworkService: ResponseHandler {
+public class NetworkService: ResponseHandler, DataService{
     public typealias ResponseType = [Post]
     public typealias UsersResponseType = [User]
     public typealias CommentResponseType = [Comment]
@@ -20,56 +20,6 @@ public class NetworkService: ResponseHandler {
                 urlFactory: UrlFactory = LiveUrlFactory()) {
         self.client = client
         self.urlFactory = urlFactory
-    }
-    
-    public func getAllInfo(completion: @escaping ([Post], [User], [Comment], Error?)->Void) {
-        let dispatchGroup = DispatchGroup()
-        
-        var posts: [Post] = []
-        var users: [User] = []
-        var comments: [Comment] = []
-        
-        var error: Error?
-        dispatchGroup.enter()
-        self.getPosts { (result) in
-            switch result {
-            case .succeed(let postArray):
-                posts = postArray
-            case .failed(let postError):
-                error = postError
-            }
-            dispatchGroup.leave()
-        }
-        
-        if error == nil {
-            dispatchGroup.enter()
-            self.getUsers { (result) in
-                switch result {
-                case .succeed(let userArray):
-                    users = userArray
-                case .failed(let  userError):
-                    error = userError
-                }
-                dispatchGroup.leave()
-            }
-        }
-
-        if error == nil {
-            dispatchGroup.enter()
-            self.getComments { (result) in
-                switch result {
-                case .succeed(let commentArray):
-                    comments = commentArray
-                case .failed(let  commentError):
-                    error = commentError
-                }
-                dispatchGroup.leave()
-            }
-        }
-        
-        dispatchGroup.notify(queue: .main) {
-            completion(posts, users, comments, error)
-        }
     }
     
     public func getPosts(completion: @escaping (RequestResult<ResponseType>) -> Void) {
