@@ -46,9 +46,11 @@ public class PersistentFileManager: PersistentManager {
     public func saveAll( posts:[Post],
                          users: [User],
                          comments: [Comment]) {
-        try? self.save(from: posts, to: .posts)
-        try? self.save(from: users, to: .users)
-        try? self.save(from: comments, to: .comments)
+        if !hasCached() {
+            try? self.save(from: posts, to: .posts)
+            try? self.save(from: users, to: .users)
+            try? self.save(from: comments, to: .comments)
+        }
     }
     
     public func save<DataType: Encodable>(from objects: [DataType], to fileName: PersistentFiles) throws {
