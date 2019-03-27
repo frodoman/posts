@@ -94,7 +94,7 @@ public class Storage {
             }
         }
         dispatchGroup.notify(queue: .main) { [weak self] in
-            PersistentFileManager.shared().saveAll(posts: posts,
+            PersistentFileManager.shared.saveAll(posts: posts,
                                       users: users,
                                       comments: comments)
             completion(posts, users, comments, error)
