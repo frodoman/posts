@@ -8,6 +8,8 @@
 
 import Foundation
 
+public typealias StorageCallBack = ([Post], [User], [Comment], Error?)->Void
+
 public protocol DataService {
     func getPosts(completion: @escaping (RequestResult<[Post]>) -> Void)
     func getUsers(completion: @escaping (RequestResult<[User]>) -> Void)
@@ -16,12 +18,43 @@ public protocol DataService {
 
 public class Storage {
     private let dataService: DataService
+    private let fileManager: PersistentManager
     
-    public init(_ service: DataService = NetworkService()) {
+    public init(_ service: DataService = NetworkService(),
+                fileManager: PersistentManager = PersistentFileManager()) {
         self.dataService = service
+        self.fileManager = fileManager
     }
     
-    public func getLiveData(completion: @escaping ([Post], [User], [Comment], Error?)->Void) {
+    public func getAllData(completion: @escaping StorageCallBack) {
+        let hasCached = self.fileManager.hasCached()
+        
+        if hasCached {
+            getCacheData(completion: completion)
+        }
+        else {
+            getLiveData { [weak self](posts, users, comments, error) in
+                if error == nil {
+                   
+                }
+                completion(posts, users, comments, error)
+            }
+        }
+    }
+    
+    private func getCacheData(completion: @escaping StorageCallBack) {
+        do {
+            let posts: [Post] = try fileManager.get(from: .posts)
+            let users: [User] = try fileManager.get(from: .users)
+            let comments:[Comment] = try fileManager.get(from: .comments)
+            completion(posts, users, comments, nil)
+        }
+        catch {
+            completion([], [], [], error)
+        }
+    }
+    
+    private func getLiveData(completion: @escaping StorageCallBack) {
         let dispatchGroup = DispatchGroup()
         
         var posts: [Post] = []
@@ -65,7 +98,10 @@ public class Storage {
                 dispatchGroup.leave()
             }
         }
-        dispatchGroup.notify(queue: .main) {
+        dispatchGroup.notify(queue: .main) { [weak self] in
+            self?.fileManager.saveAll(posts: posts,
+                                      users: users,
+                                      comments: comments)
             completion(posts, users, comments, error)
         }
     }
