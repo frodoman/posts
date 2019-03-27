@@ -33,12 +33,7 @@ public class Storage {
             getCacheData(completion: completion)
         }
         else {
-            getLiveData { [weak self](posts, users, comments, error) in
-                if error == nil {
-                   
-                }
-                completion(posts, users, comments, error)
-            }
+            getLiveData(completion: completion)
         }
     }
     
@@ -99,7 +94,7 @@ public class Storage {
             }
         }
         dispatchGroup.notify(queue: .main) { [weak self] in
-            PersistentFileManager.shared.saveAll(posts: posts,
+            PersistentFileManager.shared().saveAll(posts: posts,
                                       users: users,
                                       comments: comments)
             completion(posts, users, comments, error)
