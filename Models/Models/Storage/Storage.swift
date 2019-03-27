@@ -21,7 +21,7 @@ public class Storage {
     private let fileManager: PersistentManager
     
     public init(_ service: DataService = NetworkService(),
-                fileManager: PersistentManager = PersistentFileManager()) {
+                fileManager: PersistentManager = PersistentFileManager.shared) {
         self.dataService = service
         self.fileManager = fileManager
     }
@@ -99,7 +99,7 @@ public class Storage {
             }
         }
         dispatchGroup.notify(queue: .main) { [weak self] in
-            self?.fileManager.saveAll(posts: posts,
+            PersistentFileManager.shared.saveAll(posts: posts,
                                       users: users,
                                       comments: comments)
             completion(posts, users, comments, error)

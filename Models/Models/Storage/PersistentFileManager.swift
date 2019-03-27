@@ -27,6 +27,8 @@ public class PersistentFileManager: PersistentManager {
         
     }
     
+    public static let shared = PersistentFileManager()
+    
     public func hasCached() -> Bool {
         return hasCache(for: .comments) &&
                hasCache(for: .posts) &&
