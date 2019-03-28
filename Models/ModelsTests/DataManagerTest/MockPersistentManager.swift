@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import XCTest
 @testable import Models
 
 public class MockBlankPersistent: PersistentManager {
@@ -77,16 +78,32 @@ public class MockFullPersistent: PersistentManager {
     }
     
     public func getAll() throws -> ([Post], [User], [Comment]) {
-        let posts = [Post(id: 0, userId: 0, title: "1", body: "body 1")]
-        let fakeLocation = GeoLocation(lat: "1", lng: "2")
-        let fakeAddress = Address(street: "A", suite: "B", city: "C", zipcode: "D", geo: fakeLocation)
-        let fakeCompany = Company(name: "Apple", catchPhrase: "E", bs: "F")
-        let users = [User(id: 0, name: "A", email: "B", address: fakeAddress, phone: "009", website: "www.bbc.com", company:fakeCompany)]
-        let comments = [Comment(postId: 0, id: 0, name: "Post", email: "comment email", body: "comment body")]
-        return (posts, users, comments)
+        return (XCTestCase.mockPosts(),
+                XCTestCase.mockUsers(),
+                XCTestCase.mockComments())
     }
     
     public func clearAll() throws {
 
+    }
+}
+
+extension XCTestCase {
+    public static func mockPosts() -> [Post] {
+        let posts = [Post(id: 0, userId: 0, title: "1", body: "body 1")]
+        return posts
+    }
+    
+    public static func mockUsers() -> [User] {
+        let fakeLocation = GeoLocation(lat: "1", lng: "2")
+        let fakeAddress = Address(street: "A", suite: "B", city: "C", zipcode: "D", geo: fakeLocation)
+        let fakeCompany = Company(name: "Apple", catchPhrase: "E", bs: "F")
+        let users = [User(id: 0, name: "A", email: "B", address: fakeAddress, phone: "009", website: "www.bbc.com", company:fakeCompany)]
+        return users
+    }
+    
+    public static func mockComments() -> [Comment] {
+        let comments = [Comment(postId: 0, id: 0, name: "Post", email: "comment email", body: "comment body")]
+        return comments
     }
 }
