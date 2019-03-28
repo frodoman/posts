@@ -14,7 +14,7 @@
 		9A0BE2572249721B001204FB /* MockUrlFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BE2562249721B001204FB /* MockUrlFactory.swift */; };
 		9A0BE25922497FCF001204FB /* UrlFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BE25822497FCF001204FB /* UrlFactoryTest.swift */; };
 		9A0BE25C224AC71B001204FB /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BE25B224AC71B001204FB /* DataManager.swift */; };
-		9A0BE25F224ACDFE001204FB /* StorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BE25E224ACDFE001204FB /* StorageTest.swift */; };
+		9A0BE25F224ACDFE001204FB /* DataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BE25E224ACDFE001204FB /* DataManagerTest.swift */; };
 		9A0BE261224ACE4D001204FB /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BE260224ACE4D001204FB /* MockNetworkService.swift */; };
 		9A0BE263224C1A98001204FB /* PersistentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BE262224C1A98001204FB /* PersistentManager.swift */; };
 		9AD5D7DE22480AE200FA7268 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD5D7D422480AE200FA7268 /* Models.framework */; };
@@ -35,6 +35,9 @@
 		9AD5D81822481FA700FA7268 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5D81722481FA700FA7268 /* NetworkService.swift */; };
 		9AD5D81A22482D6700FA7268 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5D81922482D6700FA7268 /* NetworkSession.swift */; };
 		9AD5D81C2248332900FA7268 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5D81B2248332900FA7268 /* NetworkClient.swift */; };
+		C9F7D40D224CC18700B50289 /* MockPersistentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F7D40C224CC18700B50289 /* MockPersistentManager.swift */; };
+		C9F7D40F224CC6F200B50289 /* PersistentManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F7D40E224CC6F200B50289 /* PersistentManagerTest.swift */; };
+		C9F7D411224CC95500B50289 /* FileManager+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F7D410224CC95500B50289 /* FileManager+Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +58,7 @@
 		9A0BE2562249721B001204FB /* MockUrlFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUrlFactory.swift; sourceTree = "<group>"; };
 		9A0BE25822497FCF001204FB /* UrlFactoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlFactoryTest.swift; sourceTree = "<group>"; };
 		9A0BE25B224AC71B001204FB /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		9A0BE25E224ACDFE001204FB /* StorageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTest.swift; sourceTree = "<group>"; };
+		9A0BE25E224ACDFE001204FB /* DataManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerTest.swift; sourceTree = "<group>"; };
 		9A0BE260224ACE4D001204FB /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
 		9A0BE262224C1A98001204FB /* PersistentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentManager.swift; sourceTree = "<group>"; };
 		9AD5D7D422480AE200FA7268 /* Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +82,9 @@
 		9AD5D81722481FA700FA7268 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		9AD5D81922482D6700FA7268 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		9AD5D81B2248332900FA7268 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		C9F7D40C224CC18700B50289 /* MockPersistentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPersistentManager.swift; sourceTree = "<group>"; };
+		C9F7D40E224CC6F200B50289 /* PersistentManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentManagerTest.swift; sourceTree = "<group>"; };
+		C9F7D410224CC95500B50289 /* FileManager+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Common.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,13 +137,15 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
-		9A0BE25D224ACDE2001204FB /* StorageTests */ = {
+		9A0BE25D224ACDE2001204FB /* DataManagerTest */ = {
 			isa = PBXGroup;
 			children = (
-				9A0BE25E224ACDFE001204FB /* StorageTest.swift */,
+				9A0BE25E224ACDFE001204FB /* DataManagerTest.swift */,
+				C9F7D40E224CC6F200B50289 /* PersistentManagerTest.swift */,
 				9A0BE260224ACE4D001204FB /* MockNetworkService.swift */,
+				C9F7D40C224CC18700B50289 /* MockPersistentManager.swift */,
 			);
-			path = StorageTests;
+			path = DataManagerTest;
 			sourceTree = "<group>";
 		};
 		9AD5D7CA22480AE200FA7268 = {
@@ -176,7 +184,7 @@
 			children = (
 				9AD5D80A2248108500FA7268 /* XCTest+Common.swift */,
 				9AD5D7E422480AE200FA7268 /* Info.plist */,
-				9A0BE25D224ACDE2001204FB /* StorageTests */,
+				9A0BE25D224ACDE2001204FB /* DataManagerTest */,
 				9A0BE24D22496A58001204FB /* NetworkingTests */,
 				9A0BE24C22496A45001204FB /* ModelTests */,
 				9AD5D80322480CBA00FA7268 /* JSONs */,
@@ -221,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				9AD5D80D224813D500FA7268 /* Bundle+Common.swift */,
+				C9F7D410224CC95500B50289 /* FileManager+Common.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -340,6 +349,7 @@
 			files = (
 				9AD5D81622481CD200FA7268 /* UrlFactory.swift in Sources */,
 				9AD5D80E224813D500FA7268 /* Bundle+Common.swift in Sources */,
+				C9F7D411224CC95500B50289 /* FileManager+Common.swift in Sources */,
 				9AD5D80022480C8F00FA7268 /* User.swift in Sources */,
 				9A0BE263224C1A98001204FB /* PersistentManager.swift in Sources */,
 				9AD5D80222480CB000FA7268 /* Comment.swift in Sources */,
@@ -357,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A0BE24F22496A7D001204FB /* NetworkServiceTest.swift in Sources */,
+				C9F7D40F224CC6F200B50289 /* PersistentManagerTest.swift in Sources */,
 				9A0BE25122496BFD001204FB /* MockNetworkClient.swift in Sources */,
 				9AD5D7E322480AE200FA7268 /* PostModelTest.swift in Sources */,
 				9AD5D8122248183400FA7268 /* CommentModelTest.swift in Sources */,
@@ -364,9 +375,10 @@
 				9A0BE2572249721B001204FB /* MockUrlFactory.swift in Sources */,
 				9AD5D80B2248108500FA7268 /* XCTest+Common.swift in Sources */,
 				9AD5D810224816CC00FA7268 /* UserModelTest.swift in Sources */,
+				C9F7D40D224CC18700B50289 /* MockPersistentManager.swift in Sources */,
 				9A0BE25322496C13001204FB /* MockNetworkSession.swift in Sources */,
 				9A0BE25922497FCF001204FB /* UrlFactoryTest.swift in Sources */,
-				9A0BE25F224ACDFE001204FB /* StorageTest.swift in Sources */,
+				9A0BE25F224ACDFE001204FB /* DataManagerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

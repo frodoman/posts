@@ -14,11 +14,22 @@ public enum PersistentFiles: String {
     case comments = "comments.dat"
 }
 
+public enum PersistentErrors: Error {
+    case failedToSave
+    case failedToRead
+}
+
 public protocol PersistentManager {
     func hasCached()  -> Bool
     func saveAll(posts:[Post], users: [User],comments: [Comment]) throws
     func getAll() throws -> ([Post], [User], [Comment])
     func clearAll() throws
+    
+    func hasCache(for fileName: PersistentFiles) -> Bool
+    func save<DataType: Encodable>(from objects: [DataType], to fileName: PersistentFiles) throws
+    func delete(fileName: PersistentFiles) throws
+    func get<DataType: Decodable>(from fileName: PersistentFiles) throws -> [DataType]
+    func fileUrl(with name: PersistentFiles) -> URL?
 }
 
 extension FileManager: PersistentManager {
@@ -54,7 +65,7 @@ extension FileManager: PersistentManager {
     }
     
     //MARK: - Private
-    private func hasCache(for fileName: PersistentFiles) -> Bool {
+    public func hasCache(for fileName: PersistentFiles) -> Bool {
         var isExist = false
         if let filePath = fileUrl(with: fileName)?.path {
             isExist = FileManager.default.fileExists(atPath: filePath)
@@ -62,31 +73,31 @@ extension FileManager: PersistentManager {
         return isExist
     }
     
-    private func save<DataType: Encodable>(from objects: [DataType], to fileName: PersistentFiles) throws {
+    public func save<DataType: Encodable>(from objects: [DataType], to fileName: PersistentFiles) throws {
         if let url = fileUrl(with: fileName) {
             let data = try JSONEncoder().encode(objects)
             try data.write(to: url, options: .atomic)
         }
     }
     
-    private func delete(fileName: PersistentFiles) throws {
+    public func delete(fileName: PersistentFiles) throws {
         if let url = fileUrl(with: fileName) {
             try self.removeItem(at: url)
         }
     }
     
-    private func get<DataType: Decodable>(from fileName: PersistentFiles) throws -> [DataType] {
+    public func get<DataType: Decodable>(from fileName: PersistentFiles) throws -> [DataType] {
         var objects: [DataType] = []
         
         if let url = fileUrl(with: fileName) {
-           let data = try Data(contentsOf: url)
-           let objectArray = try JSONDecoder().decode([DataType].self, from: data)
-           objects = objectArray
+            let data = try Data(contentsOf: url)
+            let objectArray = try JSONDecoder().decode([DataType].self, from: data)
+            objects = objectArray
         }
         return objects
     }
     
-    private func fileUrl(with name: PersistentFiles) -> URL? {
+    public func fileUrl(with name: PersistentFiles) -> URL? {
         let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         return dir?.appendingPathComponent(name.rawValue)
     }

@@ -9,7 +9,40 @@
 import XCTest
 @testable import Models
 
-class StorageTest: XCTestCase {
+final class DataManagerTest: XCTestCase {
+    
+    func testTetAllData() {
+        let mockService = MockNetworkService()
+        let mockStorage = DataManager(mockService)
+        
+        mockStorage.getAllData(from: MockBlankPersistent()) { ( posts, users, comments, error) in
+            XCTAssertNotNil(error)
+        }
+        
+        mockStorage.getAllData(from: MockFullPersistent()) { ( posts, users, comments, error) in
+            XCTAssertNil(error)
+            XCTAssertFalse(posts.isEmpty)
+            XCTAssertFalse(users.isEmpty)
+            XCTAssertFalse(comments.isEmpty)
+        }
+        
+    }
+    
+    func testGetCacheData() {
+        let mockService = MockNetworkService()
+        let mockStorage = DataManager(mockService)
+
+        mockStorage.getCacheData(from: MockBlankPersistent()) { ( posts, users, comments, error) in
+            XCTAssertNotNil(error)
+        }
+        
+        mockStorage.getCacheData(from: MockFullPersistent()) { ( posts, users, comments, error) in
+            XCTAssertNil(error)
+            XCTAssertFalse(posts.isEmpty)
+            XCTAssertFalse(users.isEmpty)
+            XCTAssertFalse(comments.isEmpty)
+        }
+    }
     
     func testGetLiveData() {
         let mockService = MockNetworkService()

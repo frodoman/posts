@@ -28,10 +28,10 @@ public class DataManager {
         let hasCached = persistentManager.hasCached()
         
         if hasCached {
-            getCacheData(completion: completion)
+            getCacheData(from: persistentManager, completion: completion)
         }
         else {
-            getLiveData(completion: completion)
+            getLiveData(with: persistentManager, completion: completion)
         }
     }
     
