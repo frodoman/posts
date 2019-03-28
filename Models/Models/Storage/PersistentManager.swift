@@ -24,7 +24,9 @@ public protocol PersistentManager {
     func saveAll(posts:[Post], users: [User],comments: [Comment]) throws
     func getAll() throws -> ([Post], [User], [Comment])
     func clearAll() throws
-    
+}
+
+public protocol DataFileHandler {
     func hasCache(for fileName: PersistentFiles) -> Bool
     func save<DataType: Encodable>(from objects: [DataType], to fileName: PersistentFiles) throws
     func delete(fileName: PersistentFiles) throws
@@ -65,7 +67,7 @@ extension FileManager: PersistentManager {
     }
     
     //MARK: - Private
-    public func hasCache(for fileName: PersistentFiles) -> Bool {
+    private func hasCache(for fileName: PersistentFiles) -> Bool {
         var isExist = false
         if let filePath = fileUrl(with: fileName)?.path {
             isExist = FileManager.default.fileExists(atPath: filePath)
@@ -73,20 +75,20 @@ extension FileManager: PersistentManager {
         return isExist
     }
     
-    public func save<DataType: Encodable>(from objects: [DataType], to fileName: PersistentFiles) throws {
+    private func save<DataType: Encodable>(from objects: [DataType], to fileName: PersistentFiles) throws {
         if let url = fileUrl(with: fileName) {
             let data = try JSONEncoder().encode(objects)
             try data.write(to: url, options: .atomic)
         }
     }
     
-    public func delete(fileName: PersistentFiles) throws {
+    private func delete(fileName: PersistentFiles) throws {
         if let url = fileUrl(with: fileName) {
             try self.removeItem(at: url)
         }
     }
     
-    public func get<DataType: Decodable>(from fileName: PersistentFiles) throws -> [DataType] {
+    private func get<DataType: Decodable>(from fileName: PersistentFiles) throws -> [DataType] {
         var objects: [DataType] = []
         
         if let url = fileUrl(with: fileName) {
@@ -97,7 +99,7 @@ extension FileManager: PersistentManager {
         return objects
     }
     
-    public func fileUrl(with name: PersistentFiles) -> URL? {
+    private func fileUrl(with name: PersistentFiles) -> URL? {
         let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         return dir?.appendingPathComponent(name.rawValue)
     }

@@ -42,3 +42,15 @@ final class PersistentManagerTest: XCTestCase {
         }
     }
 }
+
+extension FileManager {
+    private func save<DataType: Encodable>(from objects: [DataType], to fileName: PersistentFiles) throws {
+        
+        print("Saving...")
+    }
+    
+    private func get<DataType: Decodable>(from fileName: PersistentFiles) throws -> [DataType]  {
+        let array: [DataType] = []
+        return array
+    }
+}
