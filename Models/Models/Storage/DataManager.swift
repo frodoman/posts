@@ -16,18 +16,16 @@ public protocol DataService {
     func getComments(completion: @escaping (RequestResult<[Comment]>) -> Void)
 }
 
-public class Storage {
+public class DataManager {
     private let dataService: DataService
-    private let fileManager: PersistentManager
     
-    public init(_ service: DataService = NetworkService(),
-                fileManager: PersistentManager = PersistentFileManager.shared) {
+    public init(_ service: DataService = NetworkService()) {
         self.dataService = service
-        self.fileManager = fileManager
     }
     
-    public func getAllData(completion: @escaping StorageCallBack) {
-        let hasCached = self.fileManager.hasCached()
+    public func getAllData(from persistentManager: PersistentManager = FileManager.default,
+                           completion: @escaping StorageCallBack) {
+        let hasCached = persistentManager.hasCached()
         
         if hasCached {
             getCacheData(completion: completion)
@@ -37,11 +35,10 @@ public class Storage {
         }
     }
     
-    private func getCacheData(completion: @escaping StorageCallBack) {
+    public func getCacheData(from persistentManager:PersistentManager = FileManager.default,
+                             completion: @escaping StorageCallBack) {
         do {
-            let posts: [Post] = try fileManager.get(from: .posts)
-            let users: [User] = try fileManager.get(from: .users)
-            let comments:[Comment] = try fileManager.get(from: .comments)
+            let (posts, users, comments) = try persistentManager.getAll()
             completion(posts, users, comments, nil)
         }
         catch {
@@ -49,7 +46,8 @@ public class Storage {
         }
     }
     
-    private func getLiveData(completion: @escaping StorageCallBack) {
+    public func getLiveData(with persistentManager:PersistentManager = FileManager.default,
+                            completion: @escaping StorageCallBack) {
         let dispatchGroup = DispatchGroup()
         
         var posts: [Post] = []
@@ -93,10 +91,8 @@ public class Storage {
                 dispatchGroup.leave()
             }
         }
-        dispatchGroup.notify(queue: .main) { [weak self] in
-            PersistentFileManager.shared.saveAll(posts: posts,
-                                      users: users,
-                                      comments: comments)
+        dispatchGroup.notify(queue: .main) {
+            try? persistentManager.saveAll(posts: posts, users: users, comments: comments)
             completion(posts, users, comments, error)
         }
     }

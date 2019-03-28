@@ -13,10 +13,10 @@
 		9A0BE25522496EDB001204FB /* posts_error.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A0BE25422496EDB001204FB /* posts_error.json */; };
 		9A0BE2572249721B001204FB /* MockUrlFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BE2562249721B001204FB /* MockUrlFactory.swift */; };
 		9A0BE25922497FCF001204FB /* UrlFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BE25822497FCF001204FB /* UrlFactoryTest.swift */; };
-		9A0BE25C224AC71B001204FB /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BE25B224AC71B001204FB /* Storage.swift */; };
+		9A0BE25C224AC71B001204FB /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BE25B224AC71B001204FB /* DataManager.swift */; };
 		9A0BE25F224ACDFE001204FB /* StorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BE25E224ACDFE001204FB /* StorageTest.swift */; };
 		9A0BE261224ACE4D001204FB /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BE260224ACE4D001204FB /* MockNetworkService.swift */; };
-		9A0BE263224C1A98001204FB /* PersistentFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BE262224C1A98001204FB /* PersistentFileManager.swift */; };
+		9A0BE263224C1A98001204FB /* PersistentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BE262224C1A98001204FB /* PersistentManager.swift */; };
 		9AD5D7DE22480AE200FA7268 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD5D7D422480AE200FA7268 /* Models.framework */; };
 		9AD5D7E322480AE200FA7268 /* PostModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5D7E222480AE200FA7268 /* PostModelTest.swift */; };
 		9AD5D7E522480AE200FA7268 /* Models.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AD5D7D722480AE200FA7268 /* Models.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -54,10 +54,10 @@
 		9A0BE25422496EDB001204FB /* posts_error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = posts_error.json; sourceTree = "<group>"; };
 		9A0BE2562249721B001204FB /* MockUrlFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUrlFactory.swift; sourceTree = "<group>"; };
 		9A0BE25822497FCF001204FB /* UrlFactoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlFactoryTest.swift; sourceTree = "<group>"; };
-		9A0BE25B224AC71B001204FB /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		9A0BE25B224AC71B001204FB /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		9A0BE25E224ACDFE001204FB /* StorageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTest.swift; sourceTree = "<group>"; };
 		9A0BE260224ACE4D001204FB /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
-		9A0BE262224C1A98001204FB /* PersistentFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentFileManager.swift; sourceTree = "<group>"; };
+		9A0BE262224C1A98001204FB /* PersistentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentManager.swift; sourceTree = "<group>"; };
 		9AD5D7D422480AE200FA7268 /* Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AD5D7D722480AE200FA7268 /* Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
 		9AD5D7D822480AE200FA7268 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -125,8 +125,8 @@
 		9A0BE25A224AC708001204FB /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				9A0BE25B224AC71B001204FB /* Storage.swift */,
-				9A0BE262224C1A98001204FB /* PersistentFileManager.swift */,
+				9A0BE25B224AC71B001204FB /* DataManager.swift */,
+				9A0BE262224C1A98001204FB /* PersistentManager.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -341,14 +341,14 @@
 				9AD5D81622481CD200FA7268 /* UrlFactory.swift in Sources */,
 				9AD5D80E224813D500FA7268 /* Bundle+Common.swift in Sources */,
 				9AD5D80022480C8F00FA7268 /* User.swift in Sources */,
-				9A0BE263224C1A98001204FB /* PersistentFileManager.swift in Sources */,
+				9A0BE263224C1A98001204FB /* PersistentManager.swift in Sources */,
 				9AD5D80222480CB000FA7268 /* Comment.swift in Sources */,
 				9AD5D81422481C9100FA7268 /* ResponseHandler.swift in Sources */,
 				9AD5D81C2248332900FA7268 /* NetworkClient.swift in Sources */,
 				9AD5D81A22482D6700FA7268 /* NetworkSession.swift in Sources */,
 				9AD5D7FE22480C8100FA7268 /* Post.swift in Sources */,
 				9AD5D81822481FA700FA7268 /* NetworkService.swift in Sources */,
-				9A0BE25C224AC71B001204FB /* Storage.swift in Sources */,
+				9A0BE25C224AC71B001204FB /* DataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

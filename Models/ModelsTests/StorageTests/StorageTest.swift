@@ -13,7 +13,7 @@ class StorageTest: XCTestCase {
     
     func testGetLiveData() {
         let mockService = MockNetworkService()
-        let mockStorage = Storage(mockService)
+        let mockStorage = DataManager(mockService)
         
         mockStorage.getLiveData { (posts, users, comments, error) in
             XCTAssertNotNil(error)

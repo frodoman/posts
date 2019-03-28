@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let client = Storage()
+        let client = DataManager()
         client.getAllData { (posts, users, comments, error) in
             if let error = error {
                 print("** ERROR: ", error)
