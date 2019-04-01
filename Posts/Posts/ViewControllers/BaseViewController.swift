@@ -21,4 +21,17 @@ public class BaseViewController: UIViewController {
         super.viewDidAppear(animated)
         self.viewHasAppeared = true
     }
+    
+    //MAKR: - ViewModelDelegate
+    public func startWaiting() {
+        self.view.showWaitingAnimation()
+    }
+    
+    public func stopWaiting() {
+        self.view.hideWaitingAnimation()
+    }
+    
+    public func updateUI(with error: Error?) {
+        
+    }
 }

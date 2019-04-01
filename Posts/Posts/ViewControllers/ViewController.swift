@@ -9,7 +9,7 @@
 import UIKit
 import Models
 
-class ViewController: BaseViewController {
+class ViewController: BaseViewController, ViewModelDelegate {
     
     private lazy var viewModel: PostsViewModel = {
         let viewModel = PostsViewModel(delegate: self)
@@ -27,22 +27,12 @@ class ViewController: BaseViewController {
         }
         super.viewDidAppear(animated)
     }
+    
+    override func updateUI(with error: Error?) {
+        
+    }
 }
 
-extension ViewController: ViewModelDelegate {
-    
-    func startWaiting() {
-        
-    }
-    
-    func stopWaiting() {
-        
-    }
-    
-    func updateUI(with error: Error?) {
-        print("POST: ", self.viewModel.posts.count)
-    }
-}
 
 extension ViewController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
