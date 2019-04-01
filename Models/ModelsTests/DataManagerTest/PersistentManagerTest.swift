@@ -38,7 +38,6 @@ final class PersistentManagerTest: XCTestCase {
             XCTAssertFalse(comments.isEmpty)
         }
         catch {
-            
         }
     }
 }

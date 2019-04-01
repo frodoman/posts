@@ -1,12 +1,13 @@
 //
-//  MainViewModel.swift
-//  Models
+//  PostsViewModel.swift
+//  Posts
 //
-//  Created by Xinghou Liu on 31/03/2019.
+//  Created by Xinghou Liu on 01/04/2019.
 //  Copyright © 2019 Xmart Soft Ltd. All rights reserved.
 //
 
 import Foundation
+import Models
 
 public class PostsViewModel: NSObject, ViewModel {
     

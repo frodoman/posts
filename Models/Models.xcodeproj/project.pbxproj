@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9A0994C02250BE5100808E64 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0994BF2250BE5100808E64 /* ViewModel.swift */; };
-		9A0994C22250BE5F00808E64 /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0994C12250BE5F00808E64 /* PostsViewModel.swift */; };
-		9A0994C42250BE8700808E64 /* PostDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0994C32250BE8700808E64 /* PostDetailsViewModel.swift */; };
 		9A0994C92251FDB200808E64 /* DataModel+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0994C82251FDB200808E64 /* DataModel+Common.swift */; };
 		9A0BE24F22496A7D001204FB /* NetworkServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BE24E22496A7D001204FB /* NetworkServiceTest.swift */; };
 		9A0BE25122496BFD001204FB /* MockNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BE25022496BFD001204FB /* MockNetworkClient.swift */; };
@@ -56,8 +54,6 @@
 
 /* Begin PBXFileReference section */
 		9A0994BF2250BE5100808E64 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		9A0994C12250BE5F00808E64 /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
-		9A0994C32250BE8700808E64 /* PostDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewModel.swift; sourceTree = "<group>"; };
 		9A0994C82251FDB200808E64 /* DataModel+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataModel+Common.swift"; sourceTree = "<group>"; };
 		9A0BE24E22496A7D001204FB /* NetworkServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTest.swift; sourceTree = "<group>"; };
 		9A0BE25022496BFD001204FB /* MockNetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkClient.swift; sourceTree = "<group>"; };
@@ -118,8 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				9A0994BF2250BE5100808E64 /* ViewModel.swift */,
-				9A0994C12250BE5F00808E64 /* PostsViewModel.swift */,
-				9A0994C32250BE8700808E64 /* PostDetailsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -372,11 +366,9 @@
 				9AD5D80E224813D500FA7268 /* Bundle+Common.swift in Sources */,
 				C9F7D411224CC95500B50289 /* FileManager+Common.swift in Sources */,
 				9AD5D80022480C8F00FA7268 /* User.swift in Sources */,
-				9A0994C42250BE8700808E64 /* PostDetailsViewModel.swift in Sources */,
 				9A0BE263224C1A98001204FB /* PersistentManager.swift in Sources */,
 				9AD5D80222480CB000FA7268 /* Comment.swift in Sources */,
 				9A0994C02250BE5100808E64 /* ViewModel.swift in Sources */,
-				9A0994C22250BE5F00808E64 /* PostsViewModel.swift in Sources */,
 				9AD5D81422481C9100FA7268 /* ResponseHandler.swift in Sources */,
 				9AD5D81C2248332900FA7268 /* NetworkClient.swift in Sources */,
 				9AD5D81A22482D6700FA7268 /* NetworkSession.swift in Sources */,
