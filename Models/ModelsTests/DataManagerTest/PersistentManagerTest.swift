@@ -38,6 +38,7 @@ final class PersistentManagerTest: XCTestCase {
             XCTAssertFalse(comments.isEmpty)
         }
         catch {
+            XCTFail("Failed to save files: \(error)" )
         }
     }
 }
