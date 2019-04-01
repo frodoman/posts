@@ -21,6 +21,8 @@ final class CommentModelTest: XCTestCase {
             let comments = try JSONDecoder().decode([Comment].self, from: data)
             XCTAssertNotNil(comments)
             XCTAssertFalse(comments.isEmpty)
+            
+            XCTAssertNotNil(comments.comment(with: 1))
         }
         catch {
             XCTFail("Comments decode failed: \(error)")

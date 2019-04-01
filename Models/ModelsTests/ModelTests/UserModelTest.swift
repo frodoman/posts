@@ -21,6 +21,8 @@ final class UserModelTest: XCTestCase {
             let users = try JSONDecoder().decode([User].self, from: data)
             XCTAssertNotNil(users)
             XCTAssertFalse(users.isEmpty)
+            
+            XCTAssertNotNil(users.user(with: 1))
         }
         catch {
             XCTFail("User decode failed: \(error)")

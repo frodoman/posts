@@ -21,6 +21,9 @@ final class PostModelTest: XCTestCase {
             let posts = try JSONDecoder().decode([Post].self, from: data)
             XCTAssertNotNil(posts)
             XCTAssertFalse(posts.isEmpty)
+            
+            XCTAssertNotNil(posts.post(with: 2))
+            XCTAssertNotNil(posts.posts(by: 3))
         }
         catch {
             XCTFail("Post decode failed: \(error)")
