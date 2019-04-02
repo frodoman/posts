@@ -9,6 +9,8 @@
 import Foundation
 import Models
 
+public typealias PostInformation = (Post, User?, [Comment])
+
 public class PostsViewModel: NSObject, ViewModel {
     
     public let dataManager: DataManager
@@ -35,5 +37,23 @@ public class PostsViewModel: NSObject, ViewModel {
             self?.delegate?.updateUI(with: error)
             self?.delegate?.stopWaiting()
         }
+    }
+    
+    public func allInformation(from index: Int) -> PostInformation? {
+        var postInfo: PostInformation?
+        if index < self.posts.count {
+            let post = self.posts[index]
+            postInfo = self.allInformation(for: post)
+        }
+        return postInfo
+    }
+    
+    public func allInformation(for post: Post) -> PostInformation {
+        var user:User?
+        if let author = self.users.user(with: post.userId) {
+            user = author
+        }
+        let comments = self.comments.comments(forPost: post.id)
+        return (post, user, comments)
     }
 }

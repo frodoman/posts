@@ -19,3 +19,8 @@ public enum AccessibilityIDs {
     public static let spinner = "spinner"
     public static let spinnerMask = "spinnerMask"
 }
+
+public enum ViewTitles {
+    public static let posts = "Posts"
+    public static let postDetails = "postDetails"
+}

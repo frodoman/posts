@@ -28,4 +28,8 @@ extension Array where Element == Comment {
     public func comment(with commentId: Int) -> Comment? {
         return self.first(where: {$0.id == commentId})
     }
+    
+    public func comments(forPost postId: Int) -> [Comment] {
+        return self.filter({$0.postId == postId})
+    }
 }
