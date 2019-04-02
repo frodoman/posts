@@ -22,7 +22,6 @@ class ViewController: BaseViewController, ViewModelDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "Posts"
-        self.tableView.isHidden = true
         self.tableView.accessibilityIdentifier = AccessibilityIDs.mainTableView
     }
     
