@@ -23,6 +23,7 @@ class ViewController: BaseViewController, ViewModelDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "Posts"
         self.tableView.isHidden = true
+        self.tableView.accessibilityIdentifier = AccessibilityIDs.mainTableView
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -84,6 +85,7 @@ extension ViewController: UITableViewDelegate {
         let post = self.viewModel.posts[indexPath.row]
         cell.textLabel?.text = post.title
         cell.detailTextLabel?.text = post.body
+        cell.accessibilityIdentifier = AccessibilityIDs.mainTableViewCell + ".\(indexPath.row)"
         
     }
     

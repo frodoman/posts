@@ -15,7 +15,10 @@ public enum AccessibilityIDs {
     public static let detailsTitle = "details.title"
     public static let detailsBody = "details.body"
     public static let detailsAuthor = "details.author"
+    public static let detailsComment = "details.comment"
     
     public static let spinner = "spinner"
     public static let spinnerMask = "spinnerMask"
+    
+    public static let backButton = "button.back"
 }

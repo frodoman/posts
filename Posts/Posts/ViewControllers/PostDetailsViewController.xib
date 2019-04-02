@@ -61,7 +61,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dad-Yo-9a2" secondAttribute="trailing" constant="16" id="whp-rE-czr"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="-297" y="17"/>
+            <point key="canvasLocation" x="-318" y="-69"/>
         </view>
     </objects>
 </document>

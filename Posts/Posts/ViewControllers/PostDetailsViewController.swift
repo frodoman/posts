@@ -34,9 +34,17 @@ public final class PostDetailsViewController: BaseViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupContent()
+        self.setupAccessibilityIds()
+        self.setupContent()
     }
  
+    private func setupAccessibilityIds() {
+        self.labelTitle.accessibilityIdentifier = AccessibilityIDs.detailsTitle
+        self.labelBody.accessibilityIdentifier = AccessibilityIDs.detailsBody
+        self.labelComment.accessibilityIdentifier = AccessibilityIDs.detailsComment
+        self.labelAuthor.accessibilityIdentifier = AccessibilityIDs.detailsAuthor
+    }
+    
     private func setupContent() {
         self.labelTitle.text = self.post.title
         self.labelBody.text = self.post.body

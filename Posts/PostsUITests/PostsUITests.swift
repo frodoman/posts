@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Models
 
 class PostsUITests: XCTestCase {
 
@@ -27,8 +28,47 @@ class PostsUITests: XCTestCase {
     }
 
     func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let app = XCUIApplication()
+        let tableView = app.tables[AccessibilityIDs.mainTableView]
+        
+        // data has been loaded
+        if tableView.exists {
+            self.testWithPersistentData(with: app)
+        }
+        // first time runing
+        else {
+            self.testWithLiveData(with: app,
+                                  talbView: tableView)
+        }
     }
 
+    func testWithPersistentData(with app: XCUIApplication) {
+        // make sure first cell is exists
+        let firstCell = app.cells[AccessibilityIDs.mainTableViewCell + ".0"]
+        XCTAssertTrue(firstCell.exists)
+        
+        // tap on first cell
+        firstCell.tap()
+        let title = app.staticTexts[AccessibilityIDs.detailsTitle]
+        waitForElement(element: title, toAppear: true)
+        
+        // title & body are exists
+        XCTAssertTrue(title.exists)
+        let body = app.staticTexts[AccessibilityIDs.detailsBody]
+        XCTAssertTrue(body.exists)
+        
+        // go back to the post list
+        app.navigationBars["Posts"].buttons["Posts"].tap()
+        app.swipeUp()
+        let cell = app.cells[AccessibilityIDs.mainTableViewCell + ".6"]
+        XCTAssertTrue(cell.exists)
+    }
+    
+    func testWithLiveData(with app: XCUIApplication,
+                          talbView: XCUIElement) {
+        waitForElement(element: talbView, toAppear: true)
+        XCTAssertTrue(talbView.exists)
+        
+        self.testWithPersistentData(with: app)
+    }
 }

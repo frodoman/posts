@@ -31,9 +31,7 @@ public class BaseViewController: UIViewController {
         self.view.hideWaitingAnimation()
     }
     
-    public func updateUI(with error: Error?) {
-        
-    }
+    public func updateUI(with error: Error?) {}
 }
 
 extension UIViewController {
