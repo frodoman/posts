@@ -92,7 +92,9 @@ public class DataManager {
             }
         }
         dispatchGroup.notify(queue: .main) {
-            try? persistentManager.saveAll(posts: posts, users: users, comments: comments)
+            if error == nil {
+                try? persistentManager.saveAll(posts: posts, users: users, comments: comments)
+            }
             completion(posts, users, comments, error)
         }
     }

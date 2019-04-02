@@ -34,7 +34,10 @@ class ViewController: BaseViewController, ViewModelDelegate {
 
     
     override func updateUI(with error: Error?) {
-        guard error == nil else {
+        if let error = error {
+            self.showError(with: error) { [weak self] in
+                self?.viewModel.requestData()
+            }
             return
         }
         

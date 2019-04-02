@@ -14,6 +14,7 @@
 		9A0994D3225274AB00808E64 /* DesignConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0994D2225274AB00808E64 /* DesignConsts.swift */; };
 		9A0994D62253526500808E64 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0994D42253526400808E64 /* PostDetailsViewController.swift */; };
 		9A0994D72253526500808E64 /* PostDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A0994D52253526400808E64 /* PostDetailsViewController.xib */; };
+		9A0994D92253640100808E64 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0994D82253640100808E64 /* Texts.swift */; };
 		9AD5D7AB22480A7800FA7268 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5D7AA22480A7700FA7268 /* AppDelegate.swift */; };
 		9AD5D7AD22480A7800FA7268 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5D7AC22480A7800FA7268 /* ViewController.swift */; };
 		9AD5D7B022480A7800FA7268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5D7AE22480A7800FA7268 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		9A0994D2225274AB00808E64 /* DesignConsts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignConsts.swift; sourceTree = "<group>"; };
 		9A0994D42253526400808E64 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		9A0994D52253526400808E64 /* PostDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailsViewController.xib; sourceTree = "<group>"; };
+		9A0994D82253640100808E64 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		9AD5D7A722480A7700FA7268 /* Posts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Posts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AD5D7AA22480A7700FA7268 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AD5D7AC22480A7800FA7268 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				9A0994CE2252745B00808E64 /* UIView+Common.swift */,
 				9A0994D02252748400808E64 /* AccessibilityIDs.swift */,
 				9A0994D2225274AB00808E64 /* DesignConsts.swift */,
+				9A0994D82253640100808E64 /* Texts.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				9A0994CC2252640C00808E64 /* PostsViewModel.swift in Sources */,
 				9A0994D3225274AB00808E64 /* DesignConsts.swift in Sources */,
 				9A0994CF2252745B00808E64 /* UIView+Common.swift in Sources */,
+				9A0994D92253640100808E64 /* Texts.swift in Sources */,
 				9AD5D7AD22480A7800FA7268 /* ViewController.swift in Sources */,
 				9AD5D7AB22480A7800FA7268 /* AppDelegate.swift in Sources */,
 				9A0994D62253526500808E64 /* PostDetailsViewController.swift in Sources */,

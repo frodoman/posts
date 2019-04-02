@@ -35,3 +35,27 @@ public class BaseViewController: UIViewController {
         
     }
 }
+
+extension UIViewController {
+    public func showError(with error: Error,
+                          retry: @escaping ()-> Void ) {
+        let alert = UIAlertController(title: Texts.ViewTitles.error,
+                                      message: error.localizedDescription,
+                                      preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: Texts.ButtonTitles.ok,
+                                     style: .default) { (action) in
+                                        alert.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(okAction)
+        
+        let retryAction = UIAlertAction(title: Texts.ButtonTitles.retry,
+                                        style: .cancel) { (action) in
+                                            retry()
+                                            alert.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(retryAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+}
