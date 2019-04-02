@@ -44,10 +44,10 @@ public final class PostDetailsViewController: BaseViewController {
         self.labelComment.text = "Comment: \(self.comments.count)"
         
         if let author = self.author {
-            self.labelAuthor.text = "By \(author.name)"
+            self.labelAuthor.text = "By \(author.name)\n"
         }
         else {
-            self.labelAuthor.text = ""
+            self.labelAuthor.text = "\n"
         }
     }
 }

@@ -29,6 +29,7 @@ class ViewController: BaseViewController, ViewModelDelegate {
         if (!self.viewHasAppeared) {
             self.viewModel.requestData()
         }
+        self.resetTableViewSelection()
         super.viewDidAppear(animated)
     }
 
@@ -43,6 +44,12 @@ class ViewController: BaseViewController, ViewModelDelegate {
         
         self.tableView.isHidden = false
         self.tableView.reloadData()
+    }
+    
+    private func resetTableViewSelection() {
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 }
 
@@ -64,6 +71,10 @@ extension ViewController: UITableViewDataSource {
     
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return DesignConst.Table.height
     }
 }
 

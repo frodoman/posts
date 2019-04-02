@@ -25,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dad-Yo-9a2">
-                    <rect key="frame" x="16" y="20" width="343" height="141"/>
+                    <rect key="frame" x="16" y="36" width="343" height="141"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="post title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lr7-hi-CoV">
                             <rect key="frame" x="0.0" y="0.0" width="343" height="31.5"/>
@@ -35,7 +35,7 @@
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TbK-3J-NqV">
                             <rect key="frame" x="0.0" y="47.5" width="343" height="20.5"/>
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                            <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -57,7 +57,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="dad-Yo-9a2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Mi2-kD-ifu"/>
-                <constraint firstItem="dad-Yo-9a2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="cyX-KJ-fIq"/>
+                <constraint firstItem="dad-Yo-9a2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="cyX-KJ-fIq"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dad-Yo-9a2" secondAttribute="trailing" constant="16" id="whp-rE-czr"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

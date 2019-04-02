@@ -21,4 +21,8 @@ public enum DesignConst {
         public static let min: CGFloat = 8.0
         public static let large: CGFloat = 24.0
     }
+    
+    public enum Table {
+        public static let height: CGFloat = 96.0
+    }
 }
