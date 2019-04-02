@@ -6,6 +6,12 @@
 //  Copyright © 2019 Xmart Soft Ltd. All rights reserved.
 //
 
+//
+// This is the entry point to fetch all the data source.
+// If the app is running for the first time, it will request for the data from server;
+// Otherwise, get the data from local file system
+//
+
 import Foundation
 
 public typealias StorageCallBack = ([Post], [User], [Comment], Error?)->Void

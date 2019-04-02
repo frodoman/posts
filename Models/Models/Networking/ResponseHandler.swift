@@ -22,7 +22,7 @@ public protocol ResponseHandler {
     func decodeResponse<ResponseType: Decodable>(response: RequestResult<Data>) throws -> ResponseType
 }
 
-public extension ResponseHandler where ResponseType: Any {
+public extension ResponseHandler where ResponseType: Decodable {
     
     public func decodeResponse<ResponseType: Decodable>(response: RequestResult<Data>) throws -> ResponseType {
         switch response {
