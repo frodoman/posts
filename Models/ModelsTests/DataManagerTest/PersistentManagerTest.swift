@@ -33,6 +33,7 @@ final class PersistentManagerTest: XCTestCase {
                                             comments: XCTestCase.mockComments())
             let (posts, users, comments) = try FileManager.default.getAll()
             
+            XCTAssertTrue(FileManager.default.hasCached())
             XCTAssertFalse(posts.isEmpty)
             XCTAssertFalse(users.isEmpty)
             XCTAssertFalse(comments.isEmpty)

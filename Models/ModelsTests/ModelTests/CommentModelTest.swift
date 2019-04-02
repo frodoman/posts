@@ -23,6 +23,7 @@ final class CommentModelTest: XCTestCase {
             XCTAssertFalse(comments.isEmpty)
             
             XCTAssertNotNil(comments.comment(with: 1))
+            XCTAssertNotNil(comments.comments(forPost: 2))
         }
         catch {
             XCTFail("Comments decode failed: \(error)")
