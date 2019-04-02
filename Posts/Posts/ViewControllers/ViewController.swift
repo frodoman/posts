@@ -21,7 +21,7 @@ class ViewController: BaseViewController, ViewModelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.title = "Posts"
+        self.title = Texts.ViewTitles.posts
         self.tableView.accessibilityIdentifier = AccessibilityIDs.mainTableView
     }
     
@@ -60,13 +60,14 @@ extension ViewController: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: PostsViewModel.cellId)
-        {
-            return cell
+        var cell: UITableViewCell
+        if let dequeueCell = tableView.dequeueReusableCell(withIdentifier: PostsViewModel.cellId) {
+            cell = dequeueCell
         }
         else {
-            return UITableViewCell(style: .subtitle, reuseIdentifier: PostsViewModel.cellId)
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: PostsViewModel.cellId)
         }
+        return cell
     }
     
     public func numberOfSections(in tableView: UITableView) -> Int {
@@ -93,7 +94,7 @@ extension ViewController: UITableViewDelegate {
         if let postInfo = self.viewModel.allInformation(from: indexPath.row) {
         
         let detailsViewController = PostDetailsViewController(with: postInfo)
-        self.navigationController?.pushViewController(detailsViewController, animated: true)
+            self.navigationController?.pushViewController(detailsViewController, animated: true)
         }
     }
 }

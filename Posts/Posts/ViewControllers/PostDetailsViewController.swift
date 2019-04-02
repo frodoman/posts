@@ -34,6 +34,7 @@ public final class PostDetailsViewController: BaseViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = Texts.ViewTitles.postDetails
         self.setupAccessibilityIds()
         self.setupContent()
     }

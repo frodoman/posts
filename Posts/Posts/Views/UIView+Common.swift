@@ -9,14 +9,14 @@
 import Foundation
 import UIKit
 
-public enum ViewTags {
-    static let spinner: Int = 123867
-    static let mask: Int = 894382
-}
 
 extension UIView {
     
     //MARK: - Spinner
+    private enum ViewTags {
+        static let spinner: Int = 123867
+        static let mask: Int = 894382
+    }
     
     // show a waiting animation in a view with dark background
     func showWaitingAnimation()

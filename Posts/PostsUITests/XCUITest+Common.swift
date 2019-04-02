@@ -30,23 +30,6 @@ extension XCTestCase {
             }
         }
     }
-    
-    func scrollToElement(element: XCUIElement)
-    {
-        while element.visible() == false
-        {
-            let app = XCUIApplication()
-            let startCoord = app.collectionViews.element.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
-            let endCoord = startCoord.withOffset(CGVector(dx: 0.0, dy: -262));
-            startCoord.press(forDuration: 0.01, thenDragTo: endCoord)
-        }
-    }
-    
-    public func enter(key: String) {
-        guard key.count == 1 else { return }
-        let aKey = XCUIApplication().keys[key]
-        aKey.tap()
-    }
 }
 
 

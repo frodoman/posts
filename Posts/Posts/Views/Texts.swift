@@ -11,7 +11,7 @@ import Foundation
 public enum Texts {
     public enum ViewTitles {
         public static let posts = "Posts"
-        public static let postDetails = "postDetails"
+        public static let postDetails = "Details"
         public static let error = "Error"
     }
     

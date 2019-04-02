@@ -43,12 +43,12 @@ public class PostsViewModel: NSObject, ViewModel {
         var postInfo: PostInformation?
         if index < self.posts.count {
             let post = self.posts[index]
-            postInfo = self.allInformation(for: post)
+            postInfo = self.authorAndComments(for: post)
         }
         return postInfo
     }
     
-    public func allInformation(for post: Post) -> PostInformation {
+    public func authorAndComments(for post: Post) -> PostInformation {
         var user:User?
         if let author = self.users.user(with: post.userId) {
             user = author
