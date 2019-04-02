@@ -27,7 +27,7 @@ class PostsUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
+    func testPosts() {
         let app = XCUIApplication()
         let tableView = app.tables[AccessibilityIDs.mainTableView]
         
@@ -58,7 +58,7 @@ class PostsUITests: XCTestCase {
         XCTAssertTrue(body.exists)
         
         // go back to the post list
-        app.navigationBars["Posts"].buttons["Posts"].tap()
+        app.navigationBars["Details"].buttons["Posts"].tap()
         app.swipeUp()
         let cell = app.cells[AccessibilityIDs.mainTableViewCell + ".6"]
         XCTAssertTrue(cell.exists)
