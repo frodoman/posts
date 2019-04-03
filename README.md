@@ -30,5 +30,3 @@ Use Swift 3.0 or above.
 The information (posts and post details) should be available offline. It's assumed that, if it's the first time you are accessing the app and you are offline, you shouldn't see any data.
 The code should be production grade.
 It should compile and run.
-
-# Solution
