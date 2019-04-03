@@ -50,7 +50,7 @@ public final class PostDetailsViewController: BaseViewController {
         self.labelTitle.text = self.post.title
         self.labelBody.text = self.post.body
         
-        self.labelComment.text = "Comment: \(self.comments.count)"
+        self.labelComment.text = "Comments: \(self.comments.count)"
         
         if let author = self.author {
             self.labelAuthor.text = "By \(author.name)\n"

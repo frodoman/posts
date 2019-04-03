@@ -67,6 +67,7 @@ extension ViewController: UITableViewDataSource {
         else {
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: PostsViewModel.cellId)
         }
+        cell.textLabel?.numberOfLines = 0
         return cell
     }
     
