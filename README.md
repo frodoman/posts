@@ -20,8 +20,8 @@ Its description (via the body).
 The number of comments it has.
 You can retrieve the remaining information from these API:
 
-http://jsonplaceholder.typicode.com/users
-http://jsonplaceholder.typicode.com/comments
+. http://jsonplaceholder.typicode.com/users
+. http://jsonplaceholder.typicode.com/comments
 
 
 * The following requirements should be met:
