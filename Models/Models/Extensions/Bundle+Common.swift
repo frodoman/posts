@@ -16,8 +16,6 @@ public extension Bundle {
             let data = try? Data(contentsOf: url) {
             foundData = data
         }
-        
         return foundData
     }
-    
 }

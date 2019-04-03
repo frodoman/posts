@@ -14,11 +14,11 @@ public enum RequestResult<ResponseType> {
 }
 
 // MARK: - ResponseHandler
+// Convert the raw data (from the network session) into a decodable object
 
 public protocol ResponseHandler {
     associatedtype ResponseType
-    
-    // Convert the raw data (from the network session) into a decodable object
+
     func decodeResponse<ResponseType: Decodable>(response: RequestResult<Data>) throws -> ResponseType
 }
 
