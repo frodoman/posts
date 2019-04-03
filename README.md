@@ -37,7 +37,7 @@ Please open the 'Posts.xcworkspace' file with Xcode 10.1 or later.
 # The Architecture
 There are two xcode projects in this work space: Models & Posts. 
 
-* Models
+* Models: 
 All the data model level classes/functions are here: 
 data models, networking layer, json parser, persistent data storage.
 There is also a unit test target under this project. 
@@ -46,7 +46,7 @@ I choosed a defult file manager to save the data source, because the data struct
 quite simple. Should there be any requirement to manage/upate relationshipe between
 models, using CoreData or Realm could be a much better options. 
 
-* Posts
+* Posts: 
 All the UI level classes/function are in this project, 
 where a UI test target is included. 
 
