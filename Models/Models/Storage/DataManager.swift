@@ -29,6 +29,7 @@ public class DataManager {
         self.dataService = service
     }
     
+    // get data source 
     public func getAllData(from persistentManager: PersistentManager = FileManager.default,
                            completion: @escaping StorageCallBack) {
         let hasCached = persistentManager.hasCached()
@@ -41,6 +42,7 @@ public class DataManager {
         }
     }
     
+    // get data source from persistent storage
     public func getCacheData(from persistentManager:PersistentManager = FileManager.default,
                              completion: @escaping StorageCallBack) {
         do {
@@ -52,6 +54,7 @@ public class DataManager {
         }
     }
     
+    // get data source from server
     public func getLiveData(with persistentManager:PersistentManager = FileManager.default,
                             completion: @escaping StorageCallBack) {
         let dispatchGroup = DispatchGroup()
@@ -98,9 +101,11 @@ public class DataManager {
             }
         }
         dispatchGroup.notify(queue: .main) {
+            // save the data into persistent storage
             if error == nil {
                 try? persistentManager.saveAll(posts: posts, users: users, comments: comments)
             }
+            //send back the data source
             completion(posts, users, comments, error)
         }
     }
