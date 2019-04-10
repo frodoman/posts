@@ -23,10 +23,6 @@ final class PostsViewModelTest: XCTestCase {
         return model
     }()
     
-    public override func setUp() {
-        
-    }
-    
     func testRequestData() {
         self.viewModel.requestData { [weak self] in
             XCTAssertTrue(self?.mockDelegate.updateCalled ?? false)
