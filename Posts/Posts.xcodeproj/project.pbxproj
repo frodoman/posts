@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9A0994C72250CE1E00808E64 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0994C62250CE1E00808E64 /* BaseViewController.swift */; };
-		9A0994CC2252640C00808E64 /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0994CB2252640C00808E64 /* PostsViewModel.swift */; };
 		9A0994CF2252745B00808E64 /* UIView+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0994CE2252745B00808E64 /* UIView+Common.swift */; };
 		9A0994D12252748400808E64 /* AccessibilityIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0994D02252748400808E64 /* AccessibilityIDs.swift */; };
 		9A0994D3225274AB00808E64 /* DesignConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0994D2225274AB00808E64 /* DesignConsts.swift */; };
@@ -53,7 +52,6 @@
 
 /* Begin PBXFileReference section */
 		9A0994C62250CE1E00808E64 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		9A0994CB2252640C00808E64 /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
 		9A0994CE2252745B00808E64 /* UIView+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Common.swift"; sourceTree = "<group>"; };
 		9A0994D02252748400808E64 /* AccessibilityIDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityIDs.swift; sourceTree = "<group>"; };
 		9A0994D2225274AB00808E64 /* DesignConsts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignConsts.swift; sourceTree = "<group>"; };
@@ -104,14 +102,6 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		9A0994CA225263EF00808E64 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				9A0994CB2252640C00808E64 /* PostsViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		9A0994CD2252741800808E64 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,7 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				9A0994CD2252741800808E64 /* Views */,
-				9A0994CA225263EF00808E64 /* ViewModels */,
 				9A0994C52250CE0200808E64 /* ViewControllers */,
 				9AD5D7AA22480A7700FA7268 /* AppDelegate.swift */,
 				9AD5D7AE22480A7800FA7268 /* Main.storyboard */,
@@ -270,7 +259,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A0994CC2252640C00808E64 /* PostsViewModel.swift in Sources */,
 				9A0994D3225274AB00808E64 /* DesignConsts.swift in Sources */,
 				9A0994CF2252745B00808E64 /* UIView+Common.swift in Sources */,
 				9A0994D92253640100808E64 /* Texts.swift in Sources */,

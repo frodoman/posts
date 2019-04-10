@@ -27,7 +27,7 @@ class ViewController: BaseViewController, ViewModelDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         if (!self.viewHasAppeared) {
-            self.viewModel.requestData()
+            self.viewModel.requestData {}
         }
         self.resetTableViewSelection()
         super.viewDidAppear(animated)
@@ -37,7 +37,7 @@ class ViewController: BaseViewController, ViewModelDelegate {
     override func updateUI(with error: Error?) {
         if let error = error {
             self.showError(with: error) { [weak self] in
-                self?.viewModel.requestData()
+                self?.viewModel.requestData{}
             }
             return
         }

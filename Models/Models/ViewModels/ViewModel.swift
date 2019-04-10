@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol ViewModel {
-    func requestData()
+    func requestData(completion: @escaping (()->Void))
 }
 
 public protocol ViewModelDelegate {

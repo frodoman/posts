@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Models
 
 public typealias PostInformation = (Post, User?, [Comment])
 
@@ -15,6 +14,7 @@ public class PostsViewModel: NSObject, ViewModel {
     
     public let dataManager: DataManager
     public var delegate: ViewModelDelegate?
+    public var persistentManager: PersistentManager
     
     public var posts: [Post] = []
     public var users: [User] = []
@@ -23,19 +23,22 @@ public class PostsViewModel: NSObject, ViewModel {
     public static let cellId = "PostTableCellId"
     
     public init(_ dataManager: DataManager = DataManager(),
-                delegate: ViewModelDelegate? = nil) {
+                delegate: ViewModelDelegate? = nil,
+                persistentManager: PersistentManager = FileManager.default) {
         self.dataManager = dataManager
         self.delegate = delegate
+        self.persistentManager = persistentManager
     }
     
-    public func requestData() {
+    public func requestData(completion: @escaping (()->Void)) {
         self.delegate?.startWaiting()
-        self.dataManager.getAllData { [weak self] (posts, users, comments, error) in
+        self.dataManager.getAllData(from: self.persistentManager) { [weak self] (posts, users, comments, error) in
             self?.posts = posts
             self?.users = users
             self?.comments = comments
             self?.delegate?.updateUI(with: error)
             self?.delegate?.stopWaiting()
+            completion()
         }
     }
     

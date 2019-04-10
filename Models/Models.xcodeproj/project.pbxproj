@@ -19,6 +19,9 @@
 		9A0BE25F224ACDFE001204FB /* DataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BE25E224ACDFE001204FB /* DataManagerTest.swift */; };
 		9A0BE261224ACE4D001204FB /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BE260224ACE4D001204FB /* MockNetworkService.swift */; };
 		9A0BE263224C1A98001204FB /* PersistentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BE262224C1A98001204FB /* PersistentManager.swift */; };
+		9A6D88B8225E40A800216FD1 /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6D88B7225E40A800216FD1 /* PostsViewModel.swift */; };
+		9A6D88BB225E418D00216FD1 /* PostsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6D88BA225E418D00216FD1 /* PostsViewModelTest.swift */; };
+		9A6D88BD225E41AD00216FD1 /* MockViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6D88BC225E41AD00216FD1 /* MockViewModelDelegate.swift */; };
 		9AD5D7DE22480AE200FA7268 /* Models.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD5D7D422480AE200FA7268 /* Models.framework */; };
 		9AD5D7E322480AE200FA7268 /* PostModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5D7E222480AE200FA7268 /* PostModelTest.swift */; };
 		9AD5D7E522480AE200FA7268 /* Models.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AD5D7D722480AE200FA7268 /* Models.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -65,6 +68,9 @@
 		9A0BE25E224ACDFE001204FB /* DataManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerTest.swift; sourceTree = "<group>"; };
 		9A0BE260224ACE4D001204FB /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
 		9A0BE262224C1A98001204FB /* PersistentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentManager.swift; sourceTree = "<group>"; };
+		9A6D88B7225E40A800216FD1 /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
+		9A6D88BA225E418D00216FD1 /* PostsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModelTest.swift; sourceTree = "<group>"; };
+		9A6D88BC225E41AD00216FD1 /* MockViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockViewModelDelegate.swift; sourceTree = "<group>"; };
 		9AD5D7D422480AE200FA7268 /* Models.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Models.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AD5D7D722480AE200FA7268 /* Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
 		9AD5D7D822480AE200FA7268 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -114,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				9A0994BF2250BE5100808E64 /* ViewModel.swift */,
+				9A6D88B7225E40A800216FD1 /* PostsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -160,6 +167,15 @@
 			path = DataManagerTest;
 			sourceTree = "<group>";
 		};
+		9A6D88B9225E413A00216FD1 /* ViewModelTest */ = {
+			isa = PBXGroup;
+			children = (
+				9A6D88BA225E418D00216FD1 /* PostsViewModelTest.swift */,
+				9A6D88BC225E41AD00216FD1 /* MockViewModelDelegate.swift */,
+			);
+			path = ViewModelTest;
+			sourceTree = "<group>";
+		};
 		9AD5D7CA22480AE200FA7268 = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +213,7 @@
 			children = (
 				9AD5D80A2248108500FA7268 /* XCTest+Common.swift */,
 				9AD5D7E422480AE200FA7268 /* Info.plist */,
+				9A6D88B9225E413A00216FD1 /* ViewModelTest */,
 				9A0BE25D224ACDE2001204FB /* DataManagerTest */,
 				9A0BE24D22496A58001204FB /* NetworkingTests */,
 				9A0BE24C22496A45001204FB /* ModelTests */,
@@ -372,6 +389,7 @@
 				9AD5D81422481C9100FA7268 /* ResponseHandler.swift in Sources */,
 				9AD5D81C2248332900FA7268 /* NetworkClient.swift in Sources */,
 				9AD5D81A22482D6700FA7268 /* NetworkSession.swift in Sources */,
+				9A6D88B8225E40A800216FD1 /* PostsViewModel.swift in Sources */,
 				9AD5D7FE22480C8100FA7268 /* Post.swift in Sources */,
 				9AD5D81822481FA700FA7268 /* NetworkService.swift in Sources */,
 				9A0BE25C224AC71B001204FB /* DataManager.swift in Sources */,
@@ -385,6 +403,7 @@
 				9A0BE24F22496A7D001204FB /* NetworkServiceTest.swift in Sources */,
 				C9F7D40F224CC6F200B50289 /* PersistentManagerTest.swift in Sources */,
 				9A0BE25122496BFD001204FB /* MockNetworkClient.swift in Sources */,
+				9A6D88BD225E41AD00216FD1 /* MockViewModelDelegate.swift in Sources */,
 				9AD5D7E322480AE200FA7268 /* PostModelTest.swift in Sources */,
 				9AD5D8122248183400FA7268 /* CommentModelTest.swift in Sources */,
 				9A0BE261224ACE4D001204FB /* MockNetworkService.swift in Sources */,
@@ -392,6 +411,7 @@
 				9AD5D80B2248108500FA7268 /* XCTest+Common.swift in Sources */,
 				9AD5D810224816CC00FA7268 /* UserModelTest.swift in Sources */,
 				C9F7D40D224CC18700B50289 /* MockPersistentManager.swift in Sources */,
+				9A6D88BB225E418D00216FD1 /* PostsViewModelTest.swift in Sources */,
 				9A0BE25322496C13001204FB /* MockNetworkSession.swift in Sources */,
 				9A0BE25922497FCF001204FB /* UrlFactoryTest.swift in Sources */,
 				9A0BE25F224ACDFE001204FB /* DataManagerTest.swift in Sources */,
